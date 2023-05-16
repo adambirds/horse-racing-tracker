@@ -15,14 +15,20 @@ The notifications will contain information such as:
 * Commentary (if available)
 * Last Ran (if available)
 
+We currently support the following notification methods:
+
+* Discord Webhook
+
 ## Configuration
 
-To configure the script, you will need to edit the `config.yaml` file. You simply need to ass your horses to the `horses_to_watch` key.
+To configure the script, you will need to edit the `config.yaml` file.
+
+You simply need to ass your horses to the `horses_to_watch` key and add your Discord Webhook URL to the `DISCORD_WEBHOOK_URL` key.
 
 ## Features Coming Soon
 
 * Email Notifications
-* Discord Notifications
+* Text/WhatsApp Notifications (Possibly)
 
 ## License
 

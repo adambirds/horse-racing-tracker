@@ -3,6 +3,8 @@ import datetime
 import os
 import yaml
 
+from utils.notifications import send_discord_notification
+
 current_date = datetime.datetime.now().strftime("%Y-%m-%d")
 
 API_URL = f"https://www.sportinglife.com/api/horse-racing/racing/racecards/{current_date}"
@@ -107,17 +109,16 @@ def main():
             for race in meeting["races"]:
                 for ride in race["rides"]:
                     if ride["horse"] == horse:
-                        formatted_date = datetime.datetime.strptime(meeting["date"], "%Y-%m-%d").strftime("%A %d %B %Y")
-
-                        print(f'{horse} is running at {meeting["course"]}, on {formatted_date} at {race["time"]}, ridden by {ride["jockey"]}, trained by {ride["trainer"]}.')
-                        print(f'The race is over {race["distance"]} on the {meeting["surface"]}, and the going is {meeting["going"]}.')
-                        print(f'The horse is a {ride["age"]} year old {ride["sex"]}.')
-                        print(f'Form: {ride["form"]}')
-                        print(f'Odds: {ride["current_odds"]} ')
-                        print(f'Commentary: {ride["commentary"]}')
-                        if ride["last_ran_days"] != None:
-                            print(f'Last ran: {ride["last_ran_days"]} days ago.')
-
+                        if config["DISCORD_WEBHOOK_URL"] != None:
+                            send_discord_notification(
+                                meeting,
+                                race,
+                                ride,
+                                config
+                            )
+                        else:
+                            print("No Discord Webhook URL set in config.yaml")
+                            exit()
 
 
 if __name__ == "__main__":
