@@ -1,8 +1,8 @@
-# Horse Tracker
+# Horse Racing Tracker
 
 ## Description
 
-This is a simple script that tracks when a horse or list of horses are running and provides a notification when they are running.
+This is a simple script that tracks when a horse or list of horses are running in either the UK or Ireland and provides a notification when they are running.
 The app uses the [Sporting Life](https://www.sportinglife.com/) website to get the information about the horses.
 
 The notifications will contain information such as:
@@ -18,3 +18,8 @@ The notifications will contain information such as:
 ## Configuration
 
 To configure the script, you will need to edit the `config.yaml` file. You simply need to ass your horses to the `horses_to_watch` key.
+
+## Features Coming Soon
+
+* Email Notifications
+* Discord Notifications
