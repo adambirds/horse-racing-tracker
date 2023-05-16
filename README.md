@@ -23,3 +23,7 @@ To configure the script, you will need to edit the `config.yaml` file. You simpl
 
 * Email Notifications
 * Discord Notifications
+
+## License
+
+This project is licensed under the [GNU GENERAL PUBLIC LICENSE v3](https://github.com/adambirds/horse-racing-tracker/blob/main/LICENSE).
